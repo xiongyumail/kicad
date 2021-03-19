@@ -1,0 +1,4 @@
+*.tmp
+*.vscode
+ltmain.sh
+*.tar.gz
