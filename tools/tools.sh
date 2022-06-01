@@ -51,22 +51,25 @@ fi
 
 # kicad
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
-   software-properties-common
+   software-properties-common \
+   libcanberra-gtk-module
 if [ ! -f "${TEMP_PATH}/.tools/kicad" ]; then
    cd ${WORK_PATH}
-   sudo add-apt-repository --yes ppa:kicad/kicad-5.1-releases
+   sudo add-apt-repository --yes ppa:kicad/kicad-6.0-releases
    sudo apt-get update
-   sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --install-recommends kicad kicad-locale-zh
+   sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --install-recommends kicad
    echo "kicad install ok" >> ${TEMP_PATH}/.tools/kicad
 fi
 
 # tmux
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
-   tmux
+   tmux \
+   vim-gtk 
 if [ ! -f "${TEMP_PATH}/.tools/tmux" ]; then
    cd ${WORK_PATH}
    cd tmux
    ln -s $PWD/.tmux.conf ~/.tmux.conf
+   ln -s $PWD/.vimrc ~/.vimrc
    echo "export TMUX_PATH=${TEMP_PATH}/tmux" >> ${HOME}/.bashrc
    echo "tmux install ok" >> ${TEMP_PATH}/.tools/tmux
 fi

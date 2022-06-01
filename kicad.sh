@@ -1,6 +1,6 @@
 #!/bin/bash
 IMAGE_NAME="kicad"
-IMAGE_VERSION="5.1.8"
+IMAGE_VERSION="6.0.5"
 
 WORK_PATH=$(cd $(dirname $0); pwd)
 
